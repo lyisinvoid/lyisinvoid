@@ -7,69 +7,78 @@
 
 body {
     font-family: 'Inter', sans-serif;
-    /* Dải màu gray gradient tối, có chiều sâu */
-    background: linear-gradient(135deg, #2e3440 0%, #191c24 50%, #0d0e12 100%);
-    color: #d8dee9;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+    overflow: hidden; /* Giữ cho màn hình không bị tràn khi làm mờ viền nền */
+    position: relative;
 }
 
-/* Thẻ (Card) phong cách Glassmorphism nhám tối */
+/* KỸ THUẬT LÀM MỜ NỀN: Dùng một lớp giả (pseudo-element) phủ kín phía sau */
+body::before {
+    content: "";
+    position: fixed;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    /* Gradient xám tối có chiều sâu */
+    background: radial-gradient(circle at 20% 30%, #2e3440 0%, #191c24 50%, #090a0f 100%);
+    filter: blur(50px); /* Làm mờ background cực mạnh tạo hiệu ứng mịn */
+    z-index: -1; /* Đẩy ra sau cùng */
+}
+
+/* Ô Ở GIỮA: Thiết kế sắc nét, tách biệt hoàn toàn khỏi nền */
 .card {
-    background: rgba(30, 34, 42, 0.4);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
+    background: #151820; /* Đổ màu nền đặc, tối hẳn để tương phản với nền mờ phía sau */
+    border: 1px solid rgba(255, 255, 255, 0.08); /* Viền mảnh tạo độ sắc nét cho chiếc ô */
+    border-radius: 24px; /* Bo góc hiện đại */
     padding: 50px 40px;
     max-width: 420px;
     width: 100%;
     text-align: center;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-    animation: fadeIn 1s ease-out;
+    
+    /* HIỆU ỨNG TÁCH NỀN: Đổ bóng đa tầng cực mạnh tạo cảm giác ô đang lơ lửng phía trên */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 
+                0 0 100px rgba(0, 0, 0, 0.5);
+                
+    position: relative;
+    z-index: 1;
+    animation: floatIn 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Avatar */
+/* Các thành phần bên trong giữ nguyên độ sắc nét */
 .avatar {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 20px;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    filter: grayscale(20%); /* Hơi giảm màu ảnh để hợp với vibe tối */
-    transition: filter 0.3s ease;
+    margin-bottom: 24px;
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
-.avatar:hover {
-    filter: grayscale(0%);
-}
-
-/* Typography */
 .name {
-    font-size: 1.6rem;
+    font-size: 1.7rem;
     font-weight: 600;
-    color: #eceff4;
-    letter-spacing: 1px;
-    margin-bottom: 12px;
+    color: #f3f4f6;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
 }
 
-/* Dòng gạch ngang tinh tế */
 .divider {
-    width: 40px;
+    width: 32px;
     height: 2px;
-    background: rgba(255, 255, 255, 0.15);
-    margin: 0 auto 16px auto;
+    background: #4c566a;
+    margin: 0 auto 18px auto;
 }
 
 .title {
-    font-size: 0.8rem;
-    font-weight: 400;
-    letter-spacing: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
     color: #81a1c1;
     margin-bottom: 24px;
     text-transform: uppercase;
@@ -77,17 +86,17 @@ body {
 
 .bio {
     font-size: 0.9rem;
-    line-height: 1.7;
-    color: #aebdb5;
-    margin-bottom: 35px;
-    font-weight: 300;
+    line-height: 1.6;
+    color: #9ca3af;
+    margin-bottom: 36px;
+    font-weight: 400;
 }
 
-/* Social Icons */
+/* Social Icons dạng nút tròn tối giản giống ảnh mẫu */
 .social-icons {
     display: flex;
     justify-content: center;
-    gap: 16px;
+    gap: 14px;
 }
 
 .icon-btn {
@@ -97,26 +106,27 @@ body {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.03);
-    color: #aebdb5;
+    background: #1e222b;
+    color: #9ca3af;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    transition: all 0.3s ease;
+    transition: all 0.25s ease;
 }
 
 .icon-btn:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: #eceff4;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: #2e3440;
+    color: #f3f4f6;
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-@keyframes fadeIn {
+/* Hiệu ứng xuất hiện lướt nhẹ từ dưới lên */
+@keyframes floatIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
