@@ -8,15 +8,17 @@
 body {
     font-family: 'Inter', sans-serif;
     display: flex;
-    justify-content: center;
+    /* Đẩy toàn bộ nội dung sang trái thay vì ở giữa */
+    justify-content: flex-start; 
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
-    overflow: hidden; /* Giữ cho màn hình không bị tràn khi làm mờ viền nền */
+    /* Dùng padding-left để tạo khoảng cách với mép màn hình (tùy chỉnh to nhỏ theo ý bạn) */
+    padding: 20px 20px 20px 10%; 
+    overflow: hidden; 
     position: relative;
 }
 
-/* KỸ THUẬT LÀM MỜ NỀN: Dùng một lớp giả (pseudo-element) phủ kín phía sau */
+/* Lớp nền mờ ảo phía sau */
 body::before {
     content: "";
     position: fixed;
@@ -24,32 +26,31 @@ body::before {
     left: -10%;
     width: 120%;
     height: 120%;
-    /* Gradient xám tối có chiều sâu */
     background: radial-gradient(circle at 20% 30%, #2e3440 0%, #191c24 50%, #090a0f 100%);
-    filter: blur(50px); /* Làm mờ background cực mạnh tạo hiệu ứng mịn */
-    z-index: -1; /* Đẩy ra sau cùng */
+    filter: blur(50px); 
+    z-index: -1; 
 }
 
-/* Ô Ở GIỮA: Thiết kế sắc nét, tách biệt hoàn toàn khỏi nền */
+/* Ô chữ nhật chứa nội dung */
 .card {
-    background: #151820; /* Đổ màu nền đặc, tối hẳn để tương phản với nền mờ phía sau */
-    border: 1px solid rgba(255, 255, 255, 0.08); /* Viền mảnh tạo độ sắc nét cho chiếc ô */
-    border-radius: 24px; /* Bo góc hiện đại */
-    padding: 50px 40px;
-    max-width: 420px;
+    background: #151820; 
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    border-radius: 20px; 
+    padding: 50px 45px;
+    max-width: 480px; /* Tăng chiều rộng một chút để dáng chữ nhật rõ ràng hơn */
     width: 100%;
-    text-align: center;
+    /* Căn toàn bộ chữ sang trái */
+    text-align: left; 
     
-    /* HIỆU ỨNG TÁCH NỀN: Đổ bóng đa tầng cực mạnh tạo cảm giác ô đang lơ lửng phía trên */
     box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 
                 0 0 100px rgba(0, 0, 0, 0.5);
                 
     position: relative;
     z-index: 1;
-    animation: floatIn 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Các thành phần bên trong giữ nguyên độ sắc nét */
+/* Avatar */
 .avatar {
     width: 110px;
     height: 110px;
@@ -60,8 +61,9 @@ body::before {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
+/* Typography */
 .name {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
     font-weight: 600;
     color: #f3f4f6;
     letter-spacing: -0.02em;
@@ -69,14 +71,15 @@ body::before {
 }
 
 .divider {
-    width: 32px;
-    height: 2px;
+    width: 40px;
+    height: 3px;
     background: #4c566a;
-    margin: 0 auto 18px auto;
+    /* Sửa lại margin: Bỏ căn giữa, cố định lề trái */
+    margin: 0 0 20px 0; 
 }
 
 .title {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 600;
     letter-spacing: 0.2em;
     color: #81a1c1;
@@ -85,17 +88,18 @@ body::before {
 }
 
 .bio {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     line-height: 1.6;
     color: #9ca3af;
     margin-bottom: 36px;
     font-weight: 400;
 }
 
-/* Social Icons dạng nút tròn tối giản giống ảnh mẫu */
+/* Social Icons */
 .social-icons {
     display: flex;
-    justify-content: center;
+    /* Đẩy dàn nút icon sang trái */
+    justify-content: flex-start; 
     gap: 14px;
 }
 
@@ -122,14 +126,14 @@ body::before {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-/* Hiệu ứng xuất hiện lướt nhẹ từ dưới lên */
-@keyframes floatIn {
+/* Hiệu ứng xuất hiện trượt từ bên trái sang để hợp với bố cục mới */
+@keyframes slideInLeft {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateX(-40px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateX(0);
     }
 }
