@@ -1,5 +1,6 @@
-/* [AI-Log] - Nhúng font Inter trực tiếp từ Google Fonts để ép mọi thiết bị hiển thị chuẩn */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+/* [AI-Log]
+/* Nhúng font Comic Neue bản sao hoàn hảo của Comic Sans để cứu giao diện trên iPhone */
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
 
 :root {
     --cyan-accent: #00FFFF;
@@ -301,10 +302,11 @@ body::before {
         padding-left: 0; 
     }
 
-    /* Trả chữ tên Lysis về đúng font Comic Sans MS trên Mobile */
+    /* Ép tên Lysis ăn theo font Comic Neue tròn béo trên iPhone */
     .name {
-        font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif !important;
-        font-size: 1.8rem;
+        font-family: 'Comic Neue', "Comic Sans MS", cursive, sans-serif !important;
+        font-size: 2rem; /* Tăng nhẹ kích thước vì font này thanh mảnh hơn */
+        font-weight: 700 !important; /* Ép độ đậm tối đa để chữ nổi bật */
     }
 
     .divider {
@@ -334,9 +336,12 @@ body::before {
         margin-bottom: 16px;
     }
 
-    /* Trả cả ABOUT ME và CONTACT ME về font Comic Sans MS uốn lượn gradient tinh nghịch */
+    /* Ép cả ABOUT ME và CONTACT ME ăn theo font Comic Neue */
     .col-right .title {
-        font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif !important; 
+        font-family: 'Comic Neue', "Comic Sans MS", cursive, sans-serif !important;
+        /* HOẶC nếu muốn title cũng là dạng Comic tròn béo giống tên Lysis thì dùng dòng dưới: */
+        /* font-family: 'Comic Neue', "Comic Sans MS", cursive, sans-serif !important; */
+        
         font-size: 20px !important;
         margin-bottom: 4px !important; 
     }
