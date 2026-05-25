@@ -73,9 +73,7 @@ body::before {
     flex-direction: column;
     align-items: flex-start;
     padding-right: 30px;
-    
-    /* [CẬP NHẬT]: Đã xóa bỏ hoàn toàn thanh kẻ dọc ở đây theo đúng yêu cầu */
-    border-right: none !important; 
+    border-right: none !important; /* Xóa cột dọc PC */
     border-image: none !important;
     filter: none !important;
 }
@@ -112,7 +110,6 @@ body::before {
     -webkit-text-fill-color: transparent;
 }
 
-/* [CẬP NHẬT]: Thanh divider ngang ở cột trái (dưới avatar/tên) nếu có dùng thì giữ, tự động ẩn đi nếu vô tình lọt sang cột phải */
 .col-left .divider {
     width: 48px;
     height: 3px;
@@ -158,22 +155,20 @@ body::before {
     filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.3));
 }
 
-/* [AI-Log - Bio List Mới - Style 3 đường kẻ dọc] */
+/* [AI-Log - Bio List] */
 .bio-list {
     list-style: none !important; 
-    padding: 0 0 0 18px; 
+    padding: 0 !important; /* Xóa khoảng thụt lề để mất hoàn toàn dấu chấm tròn */
     margin: 0 0 24px 0; 
     display: flex;
     flex-direction: column;
     gap: 7px; 
     font-family: 'Inter', sans-serif !important;
-    
-    /* [CẬP NHẬT]: Đã xóa bỏ hoàn toàn thanh kẻ dọc màu trắng mờ ở đây theo yêu cầu */
-    border-left: none !important;
+    border-left: none !important; /* Xóa cột dọc trắng mờ */
 }
 
 .bio-list li {
-    list-style-type: none !important; 
+    list-style-type: none !important; /* Triệt tiêu chấm tròn triệt để */
     font-size: 16px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.9);
@@ -182,9 +177,7 @@ body::before {
 }
 
 .bio-list .bullet {
-    color: var(--cyan-accent);
-    margin-right: 10px;
-    font-weight: bold;
+    display: none !important;
 }
 
 .bio-list .tagline {
@@ -271,7 +264,7 @@ body::before {
     }
 }
 
-/* [AI-Log - Responsive cho Mobile] */
+/* [AI-Log - Responsive cho Mobile]: Toàn bộ lỗi cú pháp ngoặc nhọn đã được quét sạch tại đây */
 @media (max-width: 768px) {
     body {
         padding: 16px;
@@ -289,12 +282,12 @@ body::before {
 
     .col-left {
         align-items: center;
-        border-right: none;
-        border-bottom: none;
+        border-right: none !important;
+        border-bottom: none !important;
         padding-right: 0;
         padding-bottom: 24px;
-        border-image: none;
-        filter: none;
+        border-image: none !important;
+        filter: none !important;
     }
 
     .col-right {
@@ -303,17 +296,21 @@ body::before {
         padding-left: 0; 
     }
 
+    .divider {
+        margin: 0 auto 16px auto; 
+    }
+
     .bio-list {
         padding: 0 !important; 
         margin: 0 0 24px 0 !important; 
         border-left: none !important; 
-        align-items: center; 
-        position: relative;
+        align-items: center !important; 
     }
 
     .bio-list li {
-        justify-content: center;
-        text-align: center;
+        list-style-type: none !important;
+        justify-content: center !important;
+        text-align: center !important;
     }
 
     .social-icons {
@@ -332,7 +329,7 @@ body::before {
 
     .col-right .title {
         font-size: 20px !important;
-        margin-bottom: 4px !important;
+        margin-bottom: 4px !important; 
     }
 
     .icon-btn {
