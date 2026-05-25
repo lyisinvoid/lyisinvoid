@@ -135,9 +135,11 @@ body::before {
     margin: 0;
 }
 
-/* [AI-Log]: Tiêu đề ABOUT ME & CONTACT ME font Comic + Gradient */
+/* [AI-Log]: Tiêu đề ABOUT ME & CONTACT ME font Comic + Dự phòng cho Mobile */
 .col-right .title {
-    font-family: "Comic Sans MS", "Comic Sans", cursive !important; 
+    /* [CẬP NHẬT Ở ĐÂY]: Thêm 'system-ui', 'sans-serif' vào sau để nếu iPhone không có Comic Sans thì sẽ đổi sang font tròn béo mặc định của máy, không bị biến thành chữ viết tay quý tộc nữa */
+    font-family: "Comic Sans MS", "Comic Sans", system-ui, -apple-system, sans-serif !important; 
+    
     font-size: 24px !important; 
     font-weight: bold !important;
     letter-spacing: 1px;
