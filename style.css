@@ -269,7 +269,7 @@ body::before {
     }
 }
 
-/* [AI-Log - Responsive cho Mobile] */
+/* [AI-Log - Toàn bộ giao diện Mobile đồng bộ chuẩn font Comic Sans MS] */
 @media (max-width: 768px) {
     body {
         padding: 16px;
@@ -301,12 +301,10 @@ body::before {
         padding-left: 0; 
     }
 
-    /* ÉP CHỮ LYSIS VỀ FONT INTER TRÒN BÉO, ĐẬM ĐÀ (FONT-WEIGHT: 700) TRÊN MOBILE */
+    /* Trả chữ tên Lysis về đúng font Comic Sans MS trên Mobile */
     .name {
-        font-family: 'Inter', sans-serif !important;
-        font-size: 2.2rem;
-        font-weight: 700 !important;
-        letter-spacing: 0.5px;
+        font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif !important;
+        font-size: 1.8rem;
     }
 
     .divider {
@@ -336,9 +334,9 @@ body::before {
         margin-bottom: 16px;
     }
 
-    /* Giữ nguyên font gốc cho tiêu đề ở mobile, chỉ điều chỉnh font dự phòng an toàn thành Inter */
+    /* Trả cả ABOUT ME và CONTACT ME về font Comic Sans MS uốn lượn gradient tinh nghịch */
     .col-right .title {
-        font-family: "Comic Sans MS", "Comic Sans", 'Inter', sans-serif !important; 
+        font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif !important; 
         font-size: 20px !important;
         margin-bottom: 4px !important; 
     }
