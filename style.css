@@ -1,5 +1,4 @@
-/* [AI-Log]
-/* Nhúng font Comic Neue bản sao hoàn hảo của Comic Sans để cứu giao diện trên iPhone */
+/* [AI-Log] - NHÚNG FONT COMIC NEUE TỪ GOOGLE FONTS ĐỂ CỨU GIAO DIỆN TRÊN IPHONE */
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
 
 :root {
@@ -76,7 +75,7 @@ body::before {
     flex-direction: column;
     align-items: flex-start;
     padding-right: 30px;
-    border-right: none !important; /* Xóa hẳn thanh kẻ dọc ở giữa */
+    border-right: none !important;
     border-image: none !important;
     filter: none !important;
 }
@@ -101,12 +100,12 @@ body::before {
 }
 
 .name {
-    /* Bản PC dùng Comic Sans, nếu không có sẽ tự nhảy về font Inter cực đẹp vừa nhúng */
-    font-family: "Comic Sans MS", "Comic Sans", 'Inter', sans-serif;
+    /* PC ưu tiên Comic Sans MS, nếu không có sẽ tự động lấy Comic Neue mượt mà */
+    font-family: "Comic Sans MS", "Comic Sans", 'Comic Neue', cursive, sans-serif;
     margin-top: -16px;
     margin-bottom: 8px;
     font-size: 42px; 
-    font-weight: 700;
+    font-weight: bold;
     color: #ffffff;
     letter-spacing: 1px;
     background: linear-gradient(135deg, #ffffff 40%, #00e5ff 100%);
@@ -139,9 +138,9 @@ body::before {
     margin: 0;
 }
 
-/* Tiêu đề ABOUT ME & CONTACT ME font Comic + Gradient */
+/* Tiêu đề ABOUT ME & CONTACT ME trên PC */
 .col-right .title {
-    font-family: "Comic Sans MS", "Comic Sans", 'Inter', sans-serif !important; 
+    font-family: "Comic Sans MS", "Comic Sans", 'Comic Neue', cursive, sans-serif !important; 
     font-size: 24px !important; 
     font-weight: bold !important;
     letter-spacing: 1px;
@@ -168,7 +167,7 @@ body::before {
     flex-direction: column;
     gap: 7px; 
     font-family: 'Inter', sans-serif !important;
-    border-left: none !important; /* Xóa hẳn thanh kẻ dọc trắng mờ */
+    border-left: none !important;
 }
 
 .bio-list li {
@@ -270,7 +269,7 @@ body::before {
     }
 }
 
-/* [AI-Log - Toàn bộ giao diện Mobile đồng bộ chuẩn font Comic Sans MS] */
+/* [AI-Log - Responsive cho Mobile] */
 @media (max-width: 768px) {
     body {
         padding: 16px;
@@ -302,11 +301,11 @@ body::before {
         padding-left: 0; 
     }
 
-    /* Ép tên Lysis ăn theo font Comic Neue tròn béo trên iPhone */
+    /* ÉP CHỮ LYSIS ĂN THEO FONT COMIC NEUE TRÒN BÉO TRÊN IPHONE */
     .name {
         font-family: 'Comic Neue', "Comic Sans MS", cursive, sans-serif !important;
-        font-size: 2rem; /* Tăng nhẹ kích thước vì font này thanh mảnh hơn */
-        font-weight: 700 !important; /* Ép độ đậm tối đa để chữ nổi bật */
+        font-size: 2rem;
+        font-weight: 700 !important;
     }
 
     .divider {
@@ -336,13 +335,11 @@ body::before {
         margin-bottom: 16px;
     }
 
-    /* Ép cả ABOUT ME và CONTACT ME ăn theo font Comic Neue */
+    /* ÉP CẢ ABOUT ME VÀ CONTACT ME ĂN THEO FONT COMIC NEUE TRÒN BÉO TRÊN IPHONE */
     .col-right .title {
-        font-family: 'Comic Neue', "Comic Sans MS", cursive, sans-serif !important;
-        /* HOẶC nếu muốn title cũng là dạng Comic tròn béo giống tên Lysis thì dùng dòng dưới: */
-        /* font-family: 'Comic Neue', "Comic Sans MS", cursive, sans-serif !important; */
-        
+        font-family: 'Comic Neue', "Comic Sans MS", cursive, sans-serif !important; 
         font-size: 20px !important;
+        font-weight: 700 !important;
         margin-bottom: 4px !important; 
     }
 
