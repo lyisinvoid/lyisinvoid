@@ -332,6 +332,7 @@ body::before {
     .col-right .title {
         font-size: 20px !important;
         margin-bottom: 4px !important; 
+        font-family: 'Inter', Arial, sans-serif !important;
     }
 
     .icon-btn {
