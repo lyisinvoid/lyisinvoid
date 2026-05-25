@@ -1,5 +1,11 @@
 /* [AI-Log] - NHÚNG FONT COMIC NEUE TỪ GOOGLE FONTS ĐỂ CỨU GIAO DIỆN TRÊN IPHONE */
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
+@font-face {
+    font-family: "Moly Comic Sans";
+    src: url('https://db.onlinewebfonts.com/t/20e248b11eb0b1062024b4fbf356ee84.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
 :root {
     --cyan-accent: #00FFFF;
@@ -301,11 +307,9 @@ body::before {
         padding-left: 0; 
     }
 
-    /* ÉP CHỮ LYSIS ĂN THEO FONT COMIC NEUE TRÒN BÉO TRÊN IPHONE */
     .name {
-        font-family: 'Comic Neue', "Comic Sans MS", cursive, sans-serif !important;
-        font-size: 2rem;
-        font-weight: 700 !important;
+        font-family: "Moly Comic Sans", sans-serif !important;
+        font-size: 1.8rem;
     }
 
     .divider {
@@ -335,11 +339,9 @@ body::before {
         margin-bottom: 16px;
     }
 
-    /* ÉP CẢ ABOUT ME VÀ CONTACT ME ĂN THEO FONT COMIC NEUE TRÒN BÉO TRÊN IPHONE */
     .col-right .title {
-        font-family: 'Comic Neue', "Comic Sans MS", cursive, sans-serif !important; 
+        font-family: "Moly Comic Sans", sans-serif !important; 
         font-size: 20px !important;
-        font-weight: 700 !important;
         margin-bottom: 4px !important; 
     }
 
