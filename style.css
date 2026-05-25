@@ -275,7 +275,6 @@ body::before {
     }
 }
 
-/* [AI-Log - Responsive cho Mobile] */
 @media (max-width: 768px) {
     body {
         padding: 16px;
@@ -293,12 +292,12 @@ body::before {
 
     .col-left {
         align-items: center;
-        border-right: none !important;
-        border-bottom: none !important;
+        border-right: none;
+        border-bottom: none;
         padding-right: 0;
         padding-bottom: 24px;
-        border-image: none !important;
-        filter: none !important;
+        border-image: none;
+        filter: none;
     }
 
     .col-right {
@@ -307,8 +306,9 @@ body::before {
         padding-left: 0; 
     }
 
+    /* [CẬP NHẬT TẠI ĐÂY]: Đổi font thành Comic Sans MS để đồng bộ với index.html */
     .name {
-        font-family: "Moly Comic Sans", sans-serif !important;
+        font-family: "Comic Sans MS", "Comic Sans", sans-serif !important;
         font-size: 1.8rem;
     }
 
@@ -320,13 +320,13 @@ body::before {
         padding: 0 !important; 
         margin: 0 0 24px 0 !important; 
         border-left: none !important; 
-        align-items: center !important; 
+        align-items: center; 
+        position: relative;
     }
 
     .bio-list li {
-        list-style-type: none !important;
-        justify-content: center !important;
-        text-align: center !important;
+        justify-content: center;
+        text-align: center;
     }
 
     .social-icons {
@@ -339,8 +339,9 @@ body::before {
         margin-bottom: 16px;
     }
 
+    /* [CẬP NHẬT TẠI ĐÂY]: Đổi font thành Comic Sans MS để đồng bộ với index.html */
     .col-right .title {
-        font-family: "Moly Comic Sans", sans-serif !important; 
+        font-family: "Comic Sans MS", "Comic Sans", sans-serif !important;
         font-size: 20px !important;
         margin-bottom: 4px !important; 
     }
