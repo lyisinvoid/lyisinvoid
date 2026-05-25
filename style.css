@@ -1,6 +1,4 @@
-/* [AI-Log - Style Reset & Global Variables]:
- * - Khôi phục lại biến màu gradient xám nhạt -> xám tối cho khối thẻ.
- */
+/* [AI-Log - Style Reset & Global Variables]: */
 :root {
     --cyan-accent: #00FFFF;
     --light-blue-accent: #ADD8E6;
@@ -8,7 +6,6 @@
     --text-dark: #f3f4f6;
     --bio-text: #9ca3af;
     
-    /* [AI-Log]: Màu bắt đầu và kết thúc cho nền gradient của thẻ */
     --card-bg-start: #3f4551;
     --card-bg-end: #1c1e24;
     
@@ -31,23 +28,20 @@ body {
     padding: 20px 20px 20px 10%;
     overflow: hidden;
     position: relative;
-    background-image: url('background.PNG'); /* ảnh của bạn */
+    background-image: url('background.PNG');
     background-size: cover;
     background-position: center;
-    
 }
 
 body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.4); /* lớp tối mỏng để chữ dễ đọc */
+    background: rgba(0, 0, 0, 0.4);
     z-index: 0;
 }
 
-/* [AI-Log - .card Container]:
- * - ĐÃ KHÔI PHỤC: Sử dụng linear-gradient xám nhạt -> xám tối cho nền thẻ.
- */
+/* [AI-Log - .card Container] */
 .card {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px) saturate(180%);
@@ -58,23 +52,46 @@ body::before {
     max-width: 800px;
     width: 100%;
     min-height: 420px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+    
+    display: grid;
+    grid-template-columns: 2fr 3fr; 
+    gap: 40px;
+    align-items: center;
     text-align: left;
+    
     box-shadow: 
         0 8px 32px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1); /* viền sáng trên */
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     position: relative;
     z-index: 1;
     animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* --- Các Cột Bên Trong --- */
+.col-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-right: 30px;
+    
+    /* [CẬP NHẬT]: Đã xóa bỏ hoàn toàn thanh kẻ dọc ở đây theo đúng yêu cầu */
+    border-right: none !important; 
+    border-image: none !important;
+    filter: none !important;
+}
+
+.col-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px; 
+    padding-left: 20px; 
+}
+
 /* [AI-Log - Elements inside Card] */
 .avatar {
-    width: 110px;
-    height: 110px;
+    width: 130px; 
+    height: 130px; 
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 24px;
@@ -83,14 +100,20 @@ body::before {
 }
 
 .name {
-    font-size: 1.9rem;
-    font-weight: 600;
-    color: var(--white); 
-    letter-spacing: -0.02em;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    margin-top: -16px;
     margin-bottom: 8px;
+    font-size: 42px; 
+    font-weight: bold;
+    color: #ffffff;
+    letter-spacing: 1px;
+    background: linear-gradient(135deg, #ffffff 40%, #00e5ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.divider {
+/* [CẬP NHẬT]: Thanh divider ngang ở cột trái (dưới avatar/tên) nếu có dùng thì giữ, tự động ẩn đi nếu vô tình lọt sang cột phải */
+.col-left .divider {
     width: 48px;
     height: 3px;
     background: var(--text-gradient);
@@ -98,8 +121,11 @@ body::before {
     margin: 0 0 16px 0; 
     box-shadow: 0 0 8px rgba(0, 255, 255, 0.4); 
 }
+.col-right .divider {
+    display: none !important; 
+}
 
-/* [AI-Log - Title Professional Description (Gradient Text)] */
+/* [AI-Log - Title gốc cột trái] */
 .title {
     font-size: 0.8rem;
     font-weight: 600;
@@ -108,46 +134,111 @@ body::before {
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent; 
-    margin-bottom: 24px;
     text-transform: uppercase;
+    margin: 0;
 }
 
-.bio {
-    font-size: 0.95rem;
-    line-height: 1.7;
-    color: var(--bio-text);
-    margin-bottom: 36px;
+/* [AI-Log]: Tiêu đề ABOUT ME & CONTACT ME font Comic + Gradient */
+.col-right .title {
+    font-family: "Comic Sans MS", "Comic Sans", cursive !important; 
+    font-size: 24px !important; 
+    font-weight: bold !important;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 0; 
+    margin-bottom: 12px;
+    display: block;
+    
+    background: linear-gradient(135deg, #ffffff 40%, #00e5ff 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+    
+    filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.3));
+}
+
+/* [AI-Log - Bio List Mới - Style 3 đường kẻ dọc] */
+.bio-list {
+    list-style: none !important; 
+    padding: 0 0 0 18px; 
+    margin: 0 0 24px 0; 
+    display: flex;
+    flex-direction: column;
+    gap: 7px; 
+    font-family: 'Inter', sans-serif !important;
+    
+    /* [CẬP NHẬT]: Đã xóa bỏ hoàn toàn thanh kẻ dọc màu trắng mờ ở đây theo yêu cầu */
+    border-left: none !important;
+}
+
+.bio-list li {
+    list-style-type: none !important; 
+    font-size: 16px;
     font-weight: 400;
-    max-width: 650px; 
+    color: rgba(255, 255, 255, 0.9);
+    letter-spacing: 0.3px;
+    line-height: 1.4;
+}
+
+.bio-list .bullet {
+    color: var(--cyan-accent);
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.bio-list .tagline {
+    color: rgba(148, 163, 184, 0.8); 
+    font-style: italic;
+    font-size: 14.5px;
+    margin-top: 4px;
+    line-height: 1.6; 
+}
+
+.code-comment {
+    color: var(--bio-text) !important;
+    font-style: italic;
+    font-size: 14px !important; 
+    margin-top: 4px;
 }
 
 /* [AI-Log - Social Icons] */
 .social-icons {
     display: flex;
     justify-content: flex-start; 
-    gap: 14px;
+    gap: 16px; 
 }
 
 .icon-btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 46px;
-    height: 46px;
-    border-radius: 6px;
+    width: 54px; 
+    height: 54px; 
+    border-radius: 8px; 
     background: #1e222b;
-    color: var(--bio-text);
+    color: var(--white) !important; 
     text-decoration: none;
-    font-size: 1.2rem;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    font-size: 1.8rem; 
+    
+    border: 1px solid rgba(255, 255, 255, 0.15);
     transition: all 0.25s ease;
     position: relative;
+    background: rgba(255, 255, 255, 0.08); 
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
 }
 
 .icon-btn:hover {
-    color: var(--white);
+    color: var(--white) !important;
     transform: translateY(-4px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    border-color: rgba(0, 255, 255, 0.4);
+}
+
+.icon-btn[style*="font-family"] {
+    font-size: 15px !important; 
 }
 
 .icon-btn::before {
@@ -157,7 +248,7 @@ body::before {
     left: -2px;
     right: -2px;
     bottom: -2px;
-    border-radius: 8px; 
+    border-radius: 10px; 
     background-image: var(--text-gradient);
     z-index: -1;
     opacity: 0;
@@ -180,6 +271,7 @@ body::before {
     }
 }
 
+/* [AI-Log - Responsive cho Mobile] */
 @media (max-width: 768px) {
     body {
         padding: 16px;
@@ -187,33 +279,65 @@ body::before {
     }
 
     .card {
+        grid-template-columns: 1fr; 
         padding: 36px 28px;
         min-height: unset;
         border-radius: 16px;
+        gap: 24px;
+        text-align: center;
+    }
+
+    .col-left {
+        align-items: center;
+        border-right: none;
+        border-bottom: none;
+        padding-right: 0;
+        padding-bottom: 24px;
+        border-image: none;
+        filter: none;
+    }
+
+    .col-right {
+        align-items: center;
+        gap: 20px;
+        padding-left: 0; 
+    }
+
+    .bio-list {
+        padding: 0 !important; 
+        margin: 0 0 24px 0 !important; 
+        border-left: none !important; 
+        align-items: center; 
+        position: relative;
+    }
+
+    .bio-list li {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .social-icons {
+        justify-content: center;
     }
 
     .avatar {
-        width: 80px;
-        height: 80px;
+        width: 100px;
+        height: 100px;
         margin-bottom: 16px;
     }
 
     .name {
-        font-size: 1.4rem;
+        font-size: 1.8rem;
     }
 
-    .title {
-        font-size: 0.7rem;
-    }
-
-    .bio {
-        font-size: 0.88rem;
-        margin-bottom: 24px;
+    .col-right .title {
+        font-size: 20px !important;
+        margin-bottom: 4px !important;
     }
 
     .icon-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1rem;
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
     }
 }
