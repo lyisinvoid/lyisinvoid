@@ -267,6 +267,7 @@ body::before {
 }
 
 /* [AI-Log - Responsive cho Mobile]: Toàn bộ lỗi cú pháp ngoặc nhọn đã được quét sạch tại đây */
+/* [AI-Log - Responsive cho Mobile]: Sửa triệt để lỗi font cho cả Name và Title trên iPhone */
 @media (max-width: 768px) {
     body {
         padding: 16px;
@@ -298,6 +299,13 @@ body::before {
         padding-left: 0; 
     }
 
+    /* [CẬP NHẬT MỚI TẠI ĐÂY]: Ép chữ tên Lysis trên iPhone về font Inter đứng béo, 
+       chấm dứt hoàn toàn tình trạng biến thành chữ viết tay lỗi */
+    .name {
+        font-family: 'Inter', Arial, sans-serif !important;
+        font-size: 1.8rem;
+    }
+
     .divider {
         margin: 0 auto 16px auto; 
     }
@@ -325,14 +333,11 @@ body::before {
         margin-bottom: 16px;
     }
 
-    .name {
-        font-size: 1.8rem;
-    }
-
+    /* [CẬP NHẬT MỚI TẠI ĐÂY]: Ép chữ ABOUT ME & CONTACT ME trên iPhone về font Inter */
     .col-right .title {
+        font-family: 'Inter', Arial, sans-serif !important; 
         font-size: 20px !important;
         margin-bottom: 4px !important; 
-        font-family: 'Inter', Arial, sans-serif !important;
     }
 
     .icon-btn {
