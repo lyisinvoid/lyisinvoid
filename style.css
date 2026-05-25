@@ -1,4 +1,6 @@
-/* [AI-Log - Style Reset & Global Variables]: */
+/* [AI-Log] - Nhúng font Inter trực tiếp từ Google Fonts để ép mọi thiết bị hiển thị chuẩn */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 :root {
     --cyan-accent: #00FFFF;
     --light-blue-accent: #ADD8E6;
@@ -73,7 +75,7 @@ body::before {
     flex-direction: column;
     align-items: flex-start;
     padding-right: 30px;
-    border-right: none !important; /* Xóa cột dọc PC */
+    border-right: none !important; /* Xóa hẳn thanh kẻ dọc ở giữa */
     border-image: none !important;
     filter: none !important;
 }
@@ -98,11 +100,12 @@ body::before {
 }
 
 .name {
-    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    /* Bản PC dùng Comic Sans, nếu không có sẽ tự nhảy về font Inter cực đẹp vừa nhúng */
+    font-family: "Comic Sans MS", "Comic Sans", 'Inter', sans-serif;
     margin-top: -16px;
     margin-bottom: 8px;
     font-size: 42px; 
-    font-weight: bold;
+    font-weight: 700;
     color: #ffffff;
     letter-spacing: 1px;
     background: linear-gradient(135deg, #ffffff 40%, #00e5ff 100%);
@@ -135,11 +138,9 @@ body::before {
     margin: 0;
 }
 
-/* [AI-Log]: Tiêu đề ABOUT ME & CONTACT ME font Comic + Dự phòng cho Mobile */
+/* Tiêu đề ABOUT ME & CONTACT ME font Comic + Gradient */
 .col-right .title {
-    /* [CẬP NHẬT Ở ĐÂY]: Thêm 'system-ui', 'sans-serif' vào sau để nếu iPhone không có Comic Sans thì sẽ đổi sang font tròn béo mặc định của máy, không bị biến thành chữ viết tay quý tộc nữa */
-    font-family: "Comic Sans MS", "Comic Sans", system-ui, -apple-system, sans-serif !important; 
-    
+    font-family: "Comic Sans MS", "Comic Sans", 'Inter', sans-serif !important; 
     font-size: 24px !important; 
     font-weight: bold !important;
     letter-spacing: 1px;
@@ -160,17 +161,17 @@ body::before {
 /* [AI-Log - Bio List] */
 .bio-list {
     list-style: none !important; 
-    padding: 0 !important; /* Xóa khoảng thụt lề để mất hoàn toàn dấu chấm tròn */
+    padding: 0 0 0 18px; 
     margin: 0 0 24px 0; 
     display: flex;
     flex-direction: column;
     gap: 7px; 
     font-family: 'Inter', sans-serif !important;
-    border-left: none !important; /* Xóa cột dọc trắng mờ */
+    border-left: none !important; /* Xóa hẳn thanh kẻ dọc trắng mờ */
 }
 
 .bio-list li {
-    list-style-type: none !important; /* Triệt tiêu chấm tròn triệt để */
+    list-style-type: none !important; 
     font-size: 16px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.9);
@@ -179,7 +180,9 @@ body::before {
 }
 
 .bio-list .bullet {
-    display: none !important;
+    color: var(--cyan-accent);
+    margin-right: 10px;
+    font-weight: bold;
 }
 
 .bio-list .tagline {
@@ -266,8 +269,7 @@ body::before {
     }
 }
 
-/* [AI-Log - Responsive cho Mobile]: Toàn bộ lỗi cú pháp ngoặc nhọn đã được quét sạch tại đây */
-/* [AI-Log - Responsive cho Mobile]: Sửa triệt để lỗi font cho cả Name và Title trên iPhone */
+/* [AI-Log - Responsive cho Mobile] */
 @media (max-width: 768px) {
     body {
         padding: 16px;
@@ -299,11 +301,12 @@ body::before {
         padding-left: 0; 
     }
 
-    /* [CẬP NHẬT MỚI TẠI ĐÂY]: Ép chữ tên Lysis trên iPhone về font Inter đứng béo, 
-       chấm dứt hoàn toàn tình trạng biến thành chữ viết tay lỗi */
+    /* ÉP CHỮ LYSIS VỀ FONT INTER TRÒN BÉO, ĐẬM ĐÀ (FONT-WEIGHT: 700) TRÊN MOBILE */
     .name {
-        font-family: 'Inter', Arial, sans-serif !important;
-        font-size: 1.8rem;
+        font-family: 'Inter', sans-serif !important;
+        font-size: 2.2rem;
+        font-weight: 700 !important;
+        letter-spacing: 0.5px;
     }
 
     .divider {
@@ -333,9 +336,9 @@ body::before {
         margin-bottom: 16px;
     }
 
-    /* [CẬP NHẬT MỚI TẠI ĐÂY]: Ép chữ ABOUT ME & CONTACT ME trên iPhone về font Inter */
+    /* Giữ nguyên font gốc cho tiêu đề ở mobile, chỉ điều chỉnh font dự phòng an toàn thành Inter */
     .col-right .title {
-        font-family: 'Inter', Arial, sans-serif !important; 
+        font-family: "Comic Sans MS", "Comic Sans", 'Inter', sans-serif !important; 
         font-size: 20px !important;
         margin-bottom: 4px !important; 
     }
