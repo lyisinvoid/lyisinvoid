@@ -1,4 +1,3 @@
-/* [AI-Log] - NHÚNG FONT COMIC NEUE TỪ GOOGLE FONTS ĐỂ CỨU GIAO DIỆN TRÊN IPHONE */
 @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
 @font-face {
     font-family: "Moly Comic Sans";
@@ -49,7 +48,6 @@ body::before {
     z-index: 0;
 }
 
-/* [AI-Log - .card Container] */
 .card {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px) saturate(180%);
@@ -75,7 +73,6 @@ body::before {
     animation: slideInLeft 1s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --- Các Cột Bên Trong --- */
 .col-left {
     display: flex;
     flex-direction: column;
@@ -94,7 +91,6 @@ body::before {
     padding-left: 20px; 
 }
 
-/* [AI-Log - Elements inside Card] */
 .avatar {
     width: 130px; 
     height: 130px; 
@@ -106,7 +102,6 @@ body::before {
 }
 
 .name {
-    /* PC ưu tiên Comic Sans MS, nếu không có sẽ tự động lấy Comic Neue mượt mà */
     font-family: "Comic Sans MS", "Comic Sans", 'Comic Neue', cursive, sans-serif;
     margin-top: -16px;
     margin-bottom: 8px;
@@ -131,7 +126,6 @@ body::before {
     display: none !important; 
 }
 
-/* [AI-Log - Title gốc cột trái] */
 .title {
     font-size: 0.8rem;
     font-weight: 600;
@@ -144,7 +138,6 @@ body::before {
     margin: 0;
 }
 
-/* Tiêu đề ABOUT ME & CONTACT ME trên PC */
 .col-right .title {
     font-family: "Comic Sans MS", "Comic Sans", 'Comic Neue', cursive, sans-serif !important; 
     font-size: 24px !important; 
@@ -164,7 +157,6 @@ body::before {
     filter: drop-shadow(0px 2px 3px rgba(0, 0, 0, 0.3));
 }
 
-/* [AI-Log - Bio List] */
 .bio-list {
     list-style: none !important; 
     padding: 0 0 0 18px; 
@@ -206,7 +198,6 @@ body::before {
     margin-top: 4px;
 }
 
-/* [AI-Log - Social Icons] */
 .social-icons {
     display: flex;
     justify-content: flex-start; 
@@ -306,7 +297,6 @@ body::before {
         padding-left: 0; 
     }
 
-    /* [CẬP NHẬT TẠI ĐÂY]: Đổi font thành Comic Sans MS để đồng bộ với index.html */
     .name {
         font-family: "Comic Sans MS", "Comic Sans", sans-serif !important;
         font-size: 1.8rem;
@@ -339,7 +329,6 @@ body::before {
         margin-bottom: 16px;
     }
 
-    /* [CẬP NHẬT TẠI ĐÂY]: Đổi font thành Comic Sans MS để đồng bộ với index.html */
     .col-right .title {
         font-family: "Comic Sans MS", "Comic Sans", sans-serif !important;
         font-size: 20px !important;
